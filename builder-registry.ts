@@ -32,10 +32,18 @@ Builder.registerComponent(Hero, {
     {
       name: "heroImageURL",
       type: "file",
-      allowedFileTypes: ["png, jpg, jpeg"],
+      allowedFileTypes: ["png", "jpg", "jpeg"],
     },
     {
-      name: "heroText",
+      name: "heroTitle",
+      type: "text",
+    },
+    {
+      name: "heroDescription",
+      type: "text",
+    },
+    {
+      name: "buttonText",
       type: "text",
     }
   ],

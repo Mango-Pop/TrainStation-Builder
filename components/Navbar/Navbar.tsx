@@ -18,7 +18,7 @@ function Navbar() {
     return (
         <>
             {navData.length > 0 && (
-            <div className="navbar bg-base-100 shadow-sm" style={{ marginTop: 0 }}>
+            <div className="navbar bg-white/90 dark:bg-zinc-950/80 backdrop-blur-sm fixed z-50" style={{ marginTop: 0 }}>
                 <div className="flex-1">
                     <a className="btn btn-ghost text-xl">daisyUI</a>
                 </div>
