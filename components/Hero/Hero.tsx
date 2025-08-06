@@ -29,8 +29,8 @@ function Hero({ heroImageURL, heroTitle, heroDescription, buttonText }: {
         }}>  
             <div className="hero min-h-screen max-h-[1200px]">
                 <div className="hero-content text-center">
-                    <div className="max-w-md">
-                        <h1 className="text-5xl font-bold uppercase">{heroTitle}</h1>
+                    <div className="max-w-3xl">
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-8xl font-black text-center uppercase leading-tight">{heroTitle}</h1>
                         <p className="py-6">{heroDescription}</p>
                         <button className="btn btn-primary">{buttonText}</button>
                     </div>
