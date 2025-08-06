@@ -81,6 +81,13 @@ Builder.registerComponent(MembershipCard, {
       defaultValue: "$490",
     },
     {
+      name: "priceUnit",
+      type: "text",
+      enum: ["time", "person"],
+      defaultValue: "time",
+      helperText: "Choose between time-based (/mo, /yr) or person-based (/person, /person/yr) pricing display",
+    },
+    {
       name: "monthlySavings",
       type: "text",
       defaultValue: "$0",
@@ -110,11 +117,10 @@ Builder.registerComponent(MembershipCard, {
         }
       ],
       defaultValue: [
-        { feature: "Unlimited gym access", included: true },
-        { feature: "Free fitness assessment", included: true },
-        { feature: "Access to group classes", included: true },
-        { feature: "Personal trainer sessions", included: false },
-        { feature: "Premium locker access", included: false }
+        { feature: "Free use of all equipment", included: true },
+        { feature: "Access to all training areas", included: true },
+        { feature: "All membership perks", included: true },
+        { feature: "Free consultation with trainer", included: true }
       ],
     },
     {
