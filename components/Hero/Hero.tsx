@@ -33,7 +33,7 @@ function Hero({ heroImageURL, heroCaption, heroTitle, heroDescription, buttonTex
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',            
         }}>  
-            <div className={`hero ${hasBackgroundImage ? 'min-h-screen max-h-[1200px]' : 'py-16 sm:py-24'}`}>
+            <div className={`hero ${hasBackgroundImage ? 'min-h-screen max-h-[1200px]' : 'pt-16 sm:pt-48'}`}>
                 <div className="hero-content text-center">
                     <div className="max-w-4xl">
                         <p className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl text-center uppercase tracking-[5px]">{heroCaption}</p>
