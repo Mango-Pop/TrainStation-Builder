@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 
 function Navbar() {
@@ -20,6 +21,7 @@ function Navbar() {
             {navData.length > 0 && (
             <div className="navbar bg-white/90 dark:bg-zinc-950/80 backdrop-blur-sm fixed z-50 py-4 px-8" style={{ marginTop: 0 }}>
                 <div className="flex-1">
+                <Link href="/" className="cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.0" id="Layer_1" x="0px" y="0px" viewBox="0 0 2416.1 846.94" xmlSpace="preserve" className="max-w-[150px] w-full h-auto">
 <style type="text/css">
 	{`.st0{fill:#000;} @media (prefers-color-scheme: dark) { .st0{fill:#fff;} }`}
@@ -67,6 +69,7 @@ function Navbar() {
 	</g>
 </g>
 </svg>
+                </Link>
                 </div>
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-1">

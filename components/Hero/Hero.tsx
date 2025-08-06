@@ -39,7 +39,9 @@ function Hero({ heroImageURL, heroCaption, heroTitle, heroDescription, buttonTex
                             WebkitTextStrokeColor: '#F00'
                         }}>{heroTitle}</h1>
                         <p className="py-6">{heroDescription}</p>
-                        <button className="btn btn-primary">{buttonText}</button>
+                        {buttonText && (
+                            <button className="btn btn-primary">{buttonText}</button>
+                        )}
                     </div>
                 </div>
             </div>
