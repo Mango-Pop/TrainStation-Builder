@@ -32,8 +32,8 @@ function Hero({ heroImageURL, heroCaption, heroTitle, heroDescription, buttonTex
             <div className="hero min-h-screen max-h-[1200px]">
                 <div className="hero-content text-center">
                     <div className="max-w-3xl">
-                        <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl text-center uppercase tracking-[5px]">{heroCaption}</h1>
-                        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-8xl text-center uppercase leading-tight" style={{
+                        <p className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl text-center uppercase tracking-[5px]">{heroCaption}</p>
+                        <h1 className="text-6xl sm:text-6xl md:text-8xl lg:text-8xl text-center uppercase leading-tight" style={{
                             textShadow: '5px 5px 30px #F00, 0 4px 124px #F00',
                             WebkitTextStrokeWidth: '1px',
                             WebkitTextStrokeColor: '#F00'
