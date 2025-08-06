@@ -17,19 +17,23 @@ function Hero({ heroImageURL, heroCaption, heroTitle, heroDescription, buttonTex
     };
     
     const imageUrl = getImageUrl();
+    const hasBackgroundImage = imageUrl && imageUrl.trim() !== '';
     
     useEffect(() => {    
         console.log('Image URL:', imageUrl);
-    }, [imageUrl]);
+        console.log('Has background image:', hasBackgroundImage);
+    }, [imageUrl, hasBackgroundImage]);
     
     return (        
         <main style={{
-            background: `radial-gradient(circle, rgba(0, 0, 0, .85) 80%, rgba(0, 0, 0, 0.95) 150%), url('${imageUrl}')`,
+            background: hasBackgroundImage 
+                ? `radial-gradient(circle, rgba(0, 0, 0, .85) 80%, rgba(0, 0, 0, 0.95) 150%), url('${imageUrl}')`
+                : 'transparent',
             backgroundSize: '150%',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',            
         }}>  
-            <div className="hero min-h-screen max-h-[1200px]">
+            <div className={`hero ${hasBackgroundImage ? 'min-h-screen max-h-[1200px]' : 'py-16 sm:py-24'}`}>
                 <div className="hero-content text-center">
                     <div className="max-w-4xl">
                         <p className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl text-center uppercase tracking-[5px]">{heroCaption}</p>
