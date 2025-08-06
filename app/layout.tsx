@@ -24,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" data-theme="dark" className="scroll-smooth bg-zinc-900">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${saira.variable} ${sairaCondensed.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${saira.variable} ${sairaCondensed.variable} antialiased min-h-screen bg-black text-base-content font-saira`}
       >
         {children}
       </body>
