@@ -35,6 +35,10 @@ Builder.registerComponent(Hero, {
       allowedFileTypes: ["png", "jpg", "jpeg"],
     },
     {
+      name: "heroCaption",
+      type: "text",
+    },
+    {
       name: "heroTitle",
       type: "text",
     },

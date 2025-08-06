@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-function Hero({ heroImageURL, heroTitle, heroDescription, buttonText }: { 
+function Hero({ heroImageURL, heroCaption, heroTitle, heroDescription, buttonText }: { 
   heroImageURL: string | { url: string }, // Accept both string and object with url
+  heroCaption: string,
   heroTitle: string, 
   heroDescription: string, 
   buttonText: string 
@@ -23,14 +24,20 @@ function Hero({ heroImageURL, heroTitle, heroDescription, buttonText }: {
     
     return (        
         <main style={{
-            background: `radial-gradient(circle, rgba(0, 0, 0, .5) 40%, rgba(220, 38, 38, 0.95) 150%), url('${imageUrl}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            background: `radial-gradient(circle, rgba(0, 0, 0, .85) 80%, rgba(0, 0, 0, 0.95) 150%), url('${imageUrl}')`,
+            backgroundSize: '150%',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat',            
         }}>  
             <div className="hero min-h-screen max-h-[1200px]">
                 <div className="hero-content text-center">
                     <div className="max-w-3xl">
-                        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-8xl font-black text-center uppercase leading-tight">{heroTitle}</h1>
+                        <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl text-center uppercase tracking-[5px]">{heroCaption}</h1>
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-8xl text-center uppercase leading-tight" style={{
+                            textShadow: '5px 5px 30px #F00, 0 4px 124px #F00',
+                            WebkitTextStrokeWidth: '1px',
+                            WebkitTextStrokeColor: '#F00'
+                        }}>{heroTitle}</h1>
                         <p className="py-6">{heroDescription}</p>
                         <button className="btn btn-primary">{buttonText}</button>
                     </div>
