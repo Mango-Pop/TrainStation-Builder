@@ -4,6 +4,8 @@ import Counter from "./components/Counter/Counter";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import MembershipCard from "./components/MembershipCard/MembershipCard";
+import MembershipBenefits from "./components/MembershipBenefits/MembershipBenefits";
+import Table from "./components/Table/Table";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -144,6 +146,204 @@ Builder.registerComponent(MembershipCard, {
       name: "popularBadgeText",
       type: "text",
       defaultValue: "Most Popular",
+    },
+  ],
+});
+
+Builder.registerComponent(MembershipBenefits, {
+  name: "MembershipBenefits",
+  inputs: [
+    {
+      name: "sectionTitle",
+      type: "text",
+      defaultValue: "Membership Benefits",
+    },
+    {
+      name: "sectionDescription",
+      type: "text",
+      defaultValue: "",
+    },
+    {
+      name: "benefitsTitle",
+      type: "text",
+      defaultValue: "Membership Benefits",
+    },
+    {
+      name: "benefitsColumn1",
+      type: "list",
+      subFields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        }
+      ],
+      defaultValue: [
+        { title: "10+ Squat racks" },
+        { title: "3 Complete sets of dumbbells up to 200 lbs." },
+        { title: "25 Adjustable benches" },
+        { title: "Selectorized Machines" },
+        { title: "State of the art plate loaded equipment" },
+        { title: "Variety of cardio equipment" }
+      ],
+    },
+    {
+      name: "benefitsColumn2",
+      type: "list",
+      subFields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        }
+      ],
+      defaultValue: [
+        { title: "Basketball Court" },
+        { title: "Spin room" },
+        { title: "Boxing area with Muay Thai, Aqua, Power Strike, and Speed bags" },
+        { title: "Functional training area with turf" }
+      ],
+    },
+    {
+      name: "resourcesTitle",
+      type: "text",
+      defaultValue: "Additional Resources",
+    },
+    {
+      name: "resources",
+      type: "list",
+      subFields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        }
+      ],
+      defaultValue: [
+        { title: "Personal training consultations" },
+        { title: "Nutrition guidance and meal planning" },
+        { title: "Group fitness class schedules" },
+        { title: "Recovery and wellness services" }
+      ],
+    },
+    {
+      name: "trialMembership",
+      type: "object",
+      subFields: [
+        {
+          name: "title",
+          type: "text",
+          defaultValue: "Not Sure? Try a One-Week Trial!",
+        },
+        {
+          name: "price",
+          type: "text",
+          defaultValue: "$15",
+        },
+        {
+          name: "description",
+          type: "text",
+          defaultValue: "Experience everything we have to offer with a full week trial membership.",
+        },
+        {
+          name: "buttonText",
+          type: "text",
+          defaultValue: "Sign Up Now",
+        },
+        {
+          name: "buttonUrl",
+          type: "url",
+          defaultValue: "https://trainstationfitnesscenter.gymmasteronline.com/portal/signup",
+        }
+      ],
+      defaultValue: {
+        title: "Not Sure? Try a One-Week Trial!",
+        price: "$15",
+        description: "Experience everything we have to offer with a full week trial membership.",
+        buttonText: "Sign Up Now",
+        buttonUrl: "https://trainstationfitnesscenter.gymmasteronline.com/portal/signup"
+      },
+    },
+  ],
+});
+
+Builder.registerComponent(Table, {
+  name: "Table",
+  inputs: [
+    {
+      name: "title",
+      type: "text",
+      defaultValue: "Weekly Meal Plans",
+    },
+    {
+      name: "icon",
+      type: "text",
+      helperText: "Optional: SVG icon code or leave empty for default table icon",
+    },
+    {
+      name: "columns",
+      type: "list",
+      subFields: [
+        {
+          name: "header",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "key",
+          type: "text",
+          required: true,
+          helperText: "Unique key for this column (used to match row data)",
+        },
+        {
+          name: "width",
+          type: "text",
+          helperText: "Optional: CSS width value (e.g., '25%', '200px')",
+        }
+      ],
+      defaultValue: [
+        { header: "Plan", key: "plan", width: "" },
+        { header: "Portion Size", key: "portionSize", width: "" },
+        { header: "Price / Week", key: "pricePerWeek", width: "" }
+      ],
+    },
+    {
+      name: "rows",
+      type: "list",
+      subFields: [
+        {
+          name: "plan",
+          type: "text",
+        },
+        {
+          name: "portionSize",
+          type: "text",
+        },
+        {
+          name: "pricePerWeek",
+          type: "text",
+        }
+      ],
+      defaultValue: [
+        { plan: "5 Meals", portionSize: "6 oz", pricePerWeek: "$62.50" },
+        { plan: "7 Meals", portionSize: "4 oz", pricePerWeek: "$73.50" },
+        { plan: "7 Meals", portionSize: "6 oz", pricePerWeek: "$87.50" },
+        { plan: "7 Meals", portionSize: "8 oz", pricePerWeek: "$101.50" }
+      ],
+    },
+    {
+      name: "variant",
+      type: "text",
+      enum: ["default", "striped", "bordered"],
+      defaultValue: "default",
+      helperText: "Table styling variant",
+    },
+    {
+      name: "size",
+      type: "text",
+      enum: ["sm", "md", "lg"],
+      defaultValue: "md",
+      helperText: "Table size",
     },
   ],
 });
