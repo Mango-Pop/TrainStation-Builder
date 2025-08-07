@@ -77,10 +77,10 @@ function TrainerList({
                 const finalImageUrl = getImageUrl(trainerData.profilePicture || trainerData.imageUrl || trainerData.image || trainerData.photo);
                 
                 return (
-                    <div key={trainer.id || index} className="relative bg-black rounded-lg overflow-hidden shadow-lg w-full mx-auto">
+                    <div key={trainer.id || index} className="relative rounded-lg overflow-hidden shadow-lg w-full mx-auto border-zinc-800 border flex flex-row sm:flex-col">
                         {/* Main image */}
                         {finalImageUrl && (
-                            <div className="relative h-64 sm:h-80">
+                            <div className="relative w-36 h-36 sm:w-full sm:h-64 lg:h-80 flex-shrink-0">
                                 <img 
                                     src={finalImageUrl} 
                                     alt={`${trainerData.firstName} ${trainerData.lastName}`}
@@ -90,11 +90,11 @@ function TrainerList({
                         )}
                         
                         {/* Bottom section with name and title */}
-                        <div className="p-4 text-center">
-                            <h3 className="text-white text-lg sm:text-xl font-bold mb-1">
+                        <div className="p-4 text-left sm:text-center bg-gradient-to-t flex-1 flex flex-col justify-center">
+                            <h3 className="text-white text-xl sm:text-2xl lg:text-2xl mb-1">
                                 {trainerData.firstName} {trainerData.lastName}
                             </h3>
-                            <p className="text-red-500 text-sm sm:text-base uppercase font-semibold tracking-wide">
+                            <p className="text-red-500 text-xs sm:text-sm lg:text-base uppercase font-semibold tracking-widest">
                                 {trainerData.title}
                             </p>
                         </div>

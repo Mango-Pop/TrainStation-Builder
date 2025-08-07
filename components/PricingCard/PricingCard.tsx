@@ -103,7 +103,7 @@ function PricingCard({
             href={signupUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="btn btn-primary btn-soft btn-block text-sm sm:text-base"
+            className="btn btn-primary btn-soft btn-block text-sm sm:text-base text-red-400 hover:text-white"
           >
             Subscribe
           </a>
