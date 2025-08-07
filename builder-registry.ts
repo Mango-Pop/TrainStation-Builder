@@ -6,6 +6,8 @@ import Hero from "./components/Hero/Hero";
 import MembershipCard from "./components/MembershipCard/MembershipCard";
 import MembershipBenefits from "./components/MembershipBenefits/MembershipBenefits";
 import Table from "./components/Table/Table";
+import MealItem from "./components/MealItem/MealItem";
+import StatSection from "./components/StatSection/StatSection";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -344,6 +346,138 @@ Builder.registerComponent(Table, {
       enum: ["sm", "md", "lg"],
       defaultValue: "md",
       helperText: "Table size",
+    },
+  ],
+});
+
+Builder.registerComponent(MealItem, {
+  name: "MealItem",
+  inputs: [
+    {
+      name: "name",
+      type: "text",
+      defaultValue: "Grilled Chicken Breast",
+      helperText: "Meal name",
+    },
+    {
+      name: "description",
+      type: "text",
+      defaultValue: "Tender grilled chicken breast seasoned with herbs and spices",
+      helperText: "Meal description",
+    },
+    {
+      name: "imageUrl",
+      type: "file",
+      allowedFileTypes: ["png", "jpg", "jpeg"],
+      helperText: "Meal image",
+    },
+    {
+      name: "price",
+      type: "number",
+      defaultValue: 12.99,
+      helperText: "Meal price",
+    },
+    {
+      name: "nutrition",
+      type: "object",
+      defaultValue: {
+        calories: 250,
+        protein: 45,
+        carbs: 2,
+        fat: 6,
+      },
+      subFields: [
+        {
+          name: "calories",
+          type: "number",
+        },
+        {
+          name: "protein",
+          type: "number",
+        },
+        {
+          name: "carbs",
+          type: "number",
+        },
+        {
+          name: "fat",
+          type: "number",
+        },
+      ],
+      helperText: "Nutritional information",
+    },
+    {
+      name: "allergens",
+      type: "list",
+      defaultValue: [],
+      subFields: [
+        {
+          name: "allergen",
+          type: "text",
+        },
+      ],
+      helperText: "List of allergens",
+    },
+    {
+      name: "dietaryTags",
+      type: "list",
+      defaultValue: ["High Protein", "Low Carb"],
+      subFields: [
+        {
+          name: "tag",
+          type: "text",
+        },
+      ],
+      helperText: "Dietary tags like Keto, Vegan, etc.",
+    },
+    {
+      name: "available",
+      type: "boolean",
+      defaultValue: true,
+      helperText: "Is the meal currently available",
+    },
+    {
+      name: "category",
+      type: "text",
+      enum: ["Protein", "Vegetarian", "Vegan", "Keto", "Paleo"],
+      defaultValue: "Protein",
+      helperText: "Meal category",
+    },
+  ],
+});
+
+Builder.registerComponent(StatSection, {
+  name: "StatSection",
+  inputs: [
+    {
+      name: "statNumber",
+      type: "text",
+      defaultValue: "50K+",
+      helperText: "The main statistic number or value",
+    },
+    {
+      name: "statLabel",
+      type: "text",
+      defaultValue: "MEMBERS",
+      helperText: "The label describing the statistic",
+    },
+    {
+      name: "backgroundColor",
+      type: "color",
+      defaultValue: "#2A2A2A",
+      helperText: "Background color of the stat section",
+    },
+    {
+      name: "textColor",
+      type: "color",
+      defaultValue: "white",
+      helperText: "Color of the text",
+    },
+    {
+      name: "accentColor",
+      type: "color",
+      defaultValue: "#F00",
+      helperText: "Accent color for text shadow effects",
     },
   ],
 });
