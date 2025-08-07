@@ -3,11 +3,12 @@ import { builder, Builder } from "@builder.io/react";
 import Counter from "./components/Counter/Counter";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import MembershipCard from "./components/MembershipCard/MembershipCard";
+import PricingCard from "./components/PricingCard/PricingCard";
 import MembershipBenefits from "./components/MembershipBenefits/MembershipBenefits";
 import Table from "./components/Table/Table";
 import MealItem from "./components/MealItem/MealItem";
 import StatSection from "./components/StatSection/StatSection";
+import TextSection from "./components/TextSection/TextSection";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -58,8 +59,8 @@ Builder.registerComponent(Hero, {
   ],
 });
 
-Builder.registerComponent(MembershipCard, {
-  name: "MembershipCard",
+Builder.registerComponent(PricingCard, {
+  name: "PricingCard",
   inputs: [
     {
       name: "planName",
@@ -478,6 +479,37 @@ Builder.registerComponent(StatSection, {
       type: "color",
       defaultValue: "#F00",
       helperText: "Accent color for text shadow effects",
+    },
+  ],
+});
+
+Builder.registerComponent(TextSection, {
+  name: "TextSection",
+  inputs: [
+    {
+      name: "overline",
+      type: "text",
+      defaultValue: "MEET OUR TEAM",
+      helperText: "Small text above the main title (optional)",
+    },
+    {
+      name: "title",
+      type: "text",
+      defaultValue: "PERSONALIZED COACHING FROM OUR PROFESSIONALS",
+      helperText: "Main heading text",
+    },
+    {
+      name: "description",
+      type: "text",
+      defaultValue: "",
+      helperText: "Optional description text below the title",
+    },
+    {
+      name: "alignment",
+      type: "text",
+      enum: ["left", "center", "right"],
+      defaultValue: "left",
+      helperText: "Text alignment",
     },
   ],
 });

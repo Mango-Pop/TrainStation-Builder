@@ -16,7 +16,7 @@ interface MembershipCardProps {
   priceUnit?: 'time' | 'person';
 }
 
-function MembershipCard({
+function PricingCard({
   planName,
   description,
   monthlyPrice,
@@ -113,4 +113,4 @@ function MembershipCard({
   );
 }
 
-export default MembershipCard;
+export default PricingCard;
