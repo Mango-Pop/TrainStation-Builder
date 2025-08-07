@@ -29,17 +29,17 @@ function TextSection({
             <div className="max-w-4xl mx-auto">
                 {overline && (
                     <p
-                        className="text-sm sm:text-base md:text-lg uppercase tracking-[3px] font-medium mb-4">
+                        className="text-sm sm:text-base md:text-lg uppercase tracking-[3px] font-semibold text-primary mb-4">
                         {overline}
                     </p>
                 )}
                 <h2
-                    className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold uppercase leading-tight mb-6 max-w-lg">
+                    className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-medium uppercase leading-tight mb-6 max-w-lg">
                     {title}
                 </h2>
                 {description && (
                     <p
-                        className="text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl"
+                        className="text-zinc-400 sm:text-lg md:text-xl leading-relaxed max-w-3xl"
                     >
                         {description}
                     </p>

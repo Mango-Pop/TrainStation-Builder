@@ -10,6 +10,7 @@ import MealItem from "./components/MealItem/MealItem";
 import StatSection from "./components/StatSection/StatSection";
 import TextSection from "./components/TextSection/TextSection";
 import TeamMember from "./components/TeamMember/TeamMember";
+import TrainerList from "./components/TrainerList/TrainerList";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -519,28 +520,64 @@ Builder.registerComponent(TeamMember, {
   name: "TeamMember",
   inputs: [
     {
+      name: "showFromModel",
+      type: "boolean",
+      defaultValue: false,
+      helperText: "Load trainer data from Builder.io content model",
+    },
+    {
+      name: "trainerId",
+      type: "text",
+      defaultValue: "",
+      helperText: "Trainer ID from Builder.io content model (only used if 'Load from Model' is enabled)",
+      showIf: "options.get('showFromModel')",
+    },
+    {
       name: "imageUrl",
       type: "file",
       allowedFileTypes: ["png", "jpg", "jpeg"],
-      helperText: "Team member photo",
+      helperText: "Team member photo (manual entry)",
+      showIf: "!options.get('showFromModel')",
     },
     {
       name: "name",
       type: "text",
       defaultValue: "Adam",
-      helperText: "Team member's first name",
+      helperText: "Team member's first name (manual entry)",
+      showIf: "!options.get('showFromModel')",
     },
     {
       name: "lastInitial",
       type: "text",
       defaultValue: "Z",
-      helperText: "Last name initial (just the letter)",
+      helperText: "Last name initial (manual entry)",
+      showIf: "!options.get('showFromModel')",
     },
     {
       name: "title",
       type: "text",
       defaultValue: "CERTIFIED TRAINER",
-      helperText: "Team member's job title or certification",
+      helperText: "Team member's job title (manual entry)",
+      showIf: "!options.get('showFromModel')",
+    },
+  ],
+});
+
+Builder.registerComponent(TrainerList, {
+  name: "TrainerList",
+  inputs: [
+    {
+      name: "columns",
+      type: "number",
+      defaultValue: 3,
+      helperText: "Number of columns in grid layout (1-6)",
+    },
+    {
+      name: "spacing",
+      type: "text",
+      enum: ["sm", "md", "lg"],
+      defaultValue: "md",
+      helperText: "Spacing between trainer cards",
     },
   ],
 });
