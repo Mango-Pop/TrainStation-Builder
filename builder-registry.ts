@@ -9,6 +9,7 @@ import Table from "./components/Table/Table";
 import MealItem from "./components/MealItem/MealItem";
 import StatSection from "./components/StatSection/StatSection";
 import TextSection from "./components/TextSection/TextSection";
+import TeamMember from "./components/TeamMember/TeamMember";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -510,6 +511,36 @@ Builder.registerComponent(TextSection, {
       enum: ["left", "center", "right"],
       defaultValue: "left",
       helperText: "Text alignment",
+    },
+  ],
+});
+
+Builder.registerComponent(TeamMember, {
+  name: "TeamMember",
+  inputs: [
+    {
+      name: "imageUrl",
+      type: "file",
+      allowedFileTypes: ["png", "jpg", "jpeg"],
+      helperText: "Team member photo",
+    },
+    {
+      name: "name",
+      type: "text",
+      defaultValue: "Adam",
+      helperText: "Team member's first name",
+    },
+    {
+      name: "lastInitial",
+      type: "text",
+      defaultValue: "Z",
+      helperText: "Last name initial (just the letter)",
+    },
+    {
+      name: "title",
+      type: "text",
+      defaultValue: "CERTIFIED TRAINER",
+      helperText: "Team member's job title or certification",
     },
   ],
 });
