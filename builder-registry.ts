@@ -11,6 +11,8 @@ import StatSection from "./components/StatSection/StatSection";
 import TextSection from "./components/TextSection/TextSection";
 import TeamMember from "./components/TeamMember/TeamMember";
 import TrainerList from "./components/TrainerList/TrainerList";
+import GymGallery from "./components/GymGallery/GymGallery";
+import ClosingCTA from "./components/ClosingCTA/ClosingCTA";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -578,6 +580,56 @@ Builder.registerComponent(TrainerList, {
       enum: ["sm", "md", "lg"],
       defaultValue: "md",
       helperText: "Spacing between trainer cards",
+    },
+  ],
+});
+
+Builder.registerComponent(GymGallery, {
+  name: "GymGallery",
+  inputs: [
+    {
+      name: "spacing",
+      type: "text",
+      enum: ["sm", "md", "lg"],
+      defaultValue: "md",
+      helperText: "Spacing between images",
+    },
+  ],
+});
+
+Builder.registerComponent(ClosingCTA, {
+  name: "ClosingCTA",
+  inputs: [
+    {
+      name: "backgroundImage",
+      type: "file",
+      allowedFileTypes: ["png", "jpg", "jpeg", "webp"],
+      defaultValue: "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp",
+      helperText: "Background image for the hero section",
+    },
+    {
+      name: "title",
+      type: "text",
+      defaultValue: "Ready to Transform Your Fitness Journey?",
+      helperText: "Main heading text",
+    },
+    {
+      name: "description",
+      type: "text",
+      defaultValue: "Join thousands of members who have achieved their fitness goals with our state-of-the-art facilities and expert trainers.",
+      helperText: "Description text below the title",
+    },
+    {
+      name: "buttonText",
+      type: "text",
+      defaultValue: "Get Started Today",
+      helperText: "Text displayed on the CTA button",
+    },
+    {
+      name: "buttonUrl",
+      type: "url",
+      defaultValue: "https://trainstationfitnesscenter.gymmasteronline.com/portal/signup",
+      helperText: "URL the button links to",
     },
   ],
 });
