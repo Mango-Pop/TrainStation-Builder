@@ -37,7 +37,7 @@ function Hero({ heroImageURL, heroCaption, heroTitle, heroDescription, buttonTex
                 <div className="hero-content text-center">
                     <div className="max-w-4xl">
                         <p className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl text-center uppercase tracking-[5px]">{heroCaption}</p>
-                        <h1 className="text-6xl sm:text-6xl md:text-8xl lg:text-8xl text-center uppercase leading-tight" style={{
+                        <h1 className="font-bold text-6xl sm:text-6xl md:text-8xl lg:text-8xl text-center uppercase leading-tight" style={{
                             textShadow: `
                                 -1px -1px 0 #F00,
                                 1px -1px 0 #F00,

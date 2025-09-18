@@ -13,6 +13,7 @@ import TeamMember from "./components/TeamMember/TeamMember";
 import TrainerList from "./components/TrainerList/TrainerList";
 import GymGallery from "./components/GymGallery/GymGallery";
 import ClosingCTA from "./components/ClosingCTA/ClosingCTA";
+import Footer from "./components/Footer/Footer";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -630,6 +631,29 @@ Builder.registerComponent(ClosingCTA, {
       type: "url",
       defaultValue: "https://trainstationfitnesscenter.gymmasteronline.com/portal/signup",
       helperText: "URL the button links to",
+    },
+  ],
+});
+
+Builder.registerComponent(Footer, {
+  name: "Footer",
+  inputs: [
+    {
+      name: "companyName",
+      type: "text",
+      defaultValue: "Train Station Fitness Center",
+      helperText: "Company name displayed in the footer",
+    },
+    {
+      name: "companyDescription",
+      type: "text",
+      defaultValue: "Transforming lives through fitness since 2010",
+      helperText: "Company tagline or description",
+    },
+    {
+      name: "logoSvg",
+      type: "text",
+      helperText: "Optional: Custom SVG logo code (leave empty for default)",
     },
   ],
 });
