@@ -29,27 +29,17 @@ function Hero({ heroImageURL, heroCaption, heroTitle, heroDescription, buttonTex
             background: hasBackgroundImage 
                 ? `radial-gradient(circle, rgba(0, 0, 0, .85) 80%, rgba(0, 0, 0, 0.95) 150%), url('${imageUrl}')`
                 : 'transparent',
-            backgroundSize: '150%',
+            backgroundSize: 'cover',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',            
         }}>  
-            <div className={`hero ${hasBackgroundImage ? 'min-h-[950px] max-h-[1200px]' : 'pt-16 sm:pt-48'}`}>
+            <div className={`hero ${hasBackgroundImage ? 'min-h-[100vh] max-h-[1200px]' : 'pt-16 sm:pt-48'}`}>
                 <div className="hero-content text-center">
-                    <div className="max-w-4xl">
-                        <p className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl text-center uppercase tracking-[5px]">{heroCaption}</p>
-                        <h1 className="font-bold text-6xl sm:text-6xl md:text-8xl lg:text-8xl text-center uppercase leading-tight" style={{
-                            textShadow: `
-                                -1px -1px 0 #F00,
-                                1px -1px 0 #F00,
-                                -1px 1px 0 #F00,
-                                1px 1px 0 #F00,
-                                5px 5px 30px #F00,
-                                0 4px 124px #F00
-                            `
-                        }}>{heroTitle}</h1>
-                        <p className="py-6">{heroDescription}</p>
+                    <div className="max-w-[350px] md:max-w-[500px]">
+                        <p className="text-saira text-sm sm:text-lg md:text-3xl lg:text-3xl text-center uppercase tracking-[5px] text-primary">{heroCaption}</p>
+                        <h1 className="text-saira-condensed font-extrabold text-6xl sm:text-6xl md:text-8xl lg:text-8xl text-center uppercase tracking-tight leading-none pb-4">{heroTitle}</h1>
                         {buttonText && (
-                            <button className="btn btn-primary">{buttonText}</button>
+                            <button className="btn btn-primary uppercase">{buttonText}</button>
                         )}
                     </div>
                 </div>
