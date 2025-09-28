@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { saira, sairaCondensed } from "./fonts";
 import "./tailwind.css";
 import Footer from "../components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${saira.variable} ${sairaCondensed.variable} antialiased min-h-screen bg-black text-base-content font-saira`}
       >
+        <Navbar />
         {children}
         <Footer />
       </body>

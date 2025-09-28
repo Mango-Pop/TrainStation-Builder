@@ -1,7 +1,6 @@
 "use client";
 import { builder, Builder } from "@builder.io/react";
 import Counter from "./components/Counter/Counter";
-import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import PricingCard from "./components/PricingCard/PricingCard";
 import MembershipBenefits from "./components/MembershipBenefits/MembershipBenefits";
@@ -13,7 +12,6 @@ import TeamMember from "./components/TeamMember/TeamMember";
 import TrainerList from "./components/TrainerList/TrainerList";
 import GymGallery from "./components/GymGallery/GymGallery";
 import ClosingCTA from "./components/ClosingCTA/ClosingCTA";
-import Footer from "./components/Footer/Footer";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -23,16 +21,6 @@ Builder.registerComponent(Counter, {
     {
       name: "initialCount",
       type: "number",
-    },
-  ],
-});
-
-Builder.registerComponent(Navbar, {
-  name: "Navbar",
-  inputs: [
-    {
-      name: "User Input",
-      type: "text",
     },
   ],
 });
@@ -631,29 +619,6 @@ Builder.registerComponent(ClosingCTA, {
       type: "url",
       defaultValue: "https://trainstationfitnesscenter.gymmasteronline.com/portal/signup",
       helperText: "URL the button links to",
-    },
-  ],
-});
-
-Builder.registerComponent(Footer, {
-  name: "Footer",
-  inputs: [
-    {
-      name: "companyName",
-      type: "text",
-      defaultValue: "Train Station Fitness Center",
-      helperText: "Company name displayed in the footer",
-    },
-    {
-      name: "companyDescription",
-      type: "text",
-      defaultValue: "Transforming lives through fitness since 2010",
-      helperText: "Company tagline or description",
-    },
-    {
-      name: "logoSvg",
-      type: "text",
-      helperText: "Optional: Custom SVG logo code (leave empty for default)",
     },
   ],
 });
