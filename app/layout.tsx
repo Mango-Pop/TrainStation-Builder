@@ -9,21 +9,21 @@ export const metadata: Metadata = {
 
 import { Saira, Saira_Condensed, Inter } from 'next/font/google';
 
-export const saira = Saira({
+const saira = Saira({
   subsets: ['latin'],
   display: 'swap',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-saira',
 });
 
-export const sairaCondensed = Saira_Condensed({
+const sairaCondensed = Saira_Condensed({
   subsets: ['latin'],
   display: 'swap',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-saira-condensed',
 });
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
