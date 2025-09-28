@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import Link from "next/link";
 
 interface FooterProps {
   companyName?: string;
@@ -38,23 +38,23 @@ function Footer({
       </aside>
       <nav>
         <h6 className="footer-title">Services</h6>
-        <a className="link link-hover" href="/membership">Membership Plans</a>
-        <a className="link link-hover" href="/trainers">Personal Training</a>
-        <a className="link link-hover" href="/nutrition">Nutrition Coaching</a>
-        <a className="link link-hover" href="/classes">Group Classes</a>
+        <Link className="link link-hover" href="/membership">Membership Plans</Link>
+        <Link className="link link-hover" href="/trainers">Personal Training</Link>
+        <Link className="link link-hover" href="/nutrition">Nutrition Coaching</Link>
+        <Link className="link link-hover" href="/classes">Group Classes</Link>
       </nav>
       <nav>
         <h6 className="footer-title">Company</h6>
-        <a className="link link-hover" href="/about">About Us</a>
-        <a className="link link-hover" href="/contact">Contact</a>
-        <a className="link link-hover" href="/our-gym">Our Facility</a>
-        <a className="link link-hover" href="/careers">Careers</a>
+        <Link className="link link-hover" href="/about">About Us</Link>
+        <Link className="link link-hover" href="/contact">Contact</Link>
+        <Link className="link link-hover" href="/our-gym">Our Facility</Link>
+        <Link className="link link-hover" href="/careers">Careers</Link>
       </nav>
       <nav>
         <h6 className="footer-title">Legal</h6>
-        <a className="link link-hover" href="/terms">Terms of Use</a>
-        <a className="link link-hover" href="/privacy">Privacy Policy</a>
-        <a className="link link-hover" href="/waiver">Liability Waiver</a>
+        <Link className="link link-hover" href="/terms">Terms of Use</Link>
+        <Link className="link link-hover" href="/privacy">Privacy Policy</Link>
+        <Link className="link link-hover" href="/waiver">Liability Waiver</Link>
       </nav>
     </footer>
   );
