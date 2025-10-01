@@ -1,5 +1,12 @@
 "use client";
-import React from "react";
+import { useState, useEffect } from "react";
+
+interface Asset {
+    id?: string;
+    url: string;
+    name?: string;
+    alt?: string;
+}
 
 function AssetGallery({ 
   images = [],
@@ -12,20 +19,25 @@ function AssetGallery({
   columns?: number,
   spacing?: "sm" | "md" | "lg"
 }) {
-    const [assets, setAssets] = useState<any[]>([]);
+    const [assets, setAssets] = useState<Asset[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+
         const fetchAssets = async () => {
             try {
                 setLoading(true);
                 setError(null);
                 
                 // Use Builder.io's asset API to fetch assets from a specific folder ID
+                // const response = await fetch(
+                //     `https://cdn.builder.io/api/v1/assets?apiKey=${process.env.NEXT_PUBLIC_BUILDER_API_KEY}&folderId=${encodeURIComponent(folderId)}&limit=50`
+                // );
+
                 const response = await fetch(
-                    `https://cdn.builder.io/api/v1/assets?apiKey=${process.env.NEXT_PUBLIC_BUILDER_API_KEY}&folderId=${encodeURIComponent(folderId)}&limit=50`
-                );
+                    `https://cdn.builder.io/api/v3/content/gallery?apiKey=${process.env.NEXT_PUBLIC_BUILDER_API_KEY}`
+                )
                 
                 if (!response.ok) {
                     throw new Error(`Failed to fetch assets: ${response.statusText}`);
@@ -41,10 +53,8 @@ function AssetGallery({
             }
         };
 
-        if (folderId) {
-            fetchAssets();
-        }
-    }, [folderId]);
+        fetchAssets();
+    }, []);
 
     const spacingClasses = {
         sm: "gap-2",
@@ -78,16 +88,16 @@ function AssetGallery({
             <div className="alert alert-error max-w-md mx-auto">
                 <span>Error: {error}</span>
             </div>
-        );
-    }
+        )
+    };
 
-    if (assets.length === 0) {
-        return (
-            <div className="alert alert-info max-w-md mx-auto">
-                <span>No assets found in folder ID "{folderId}"</span>
-            </div>
-        );
-    }
+    // if (assets.length === 0) {
+    //     return (
+    //         <div className="alert alert-info max-w-md mx-auto">
+    //             <span>No assets found in folder ID "{folderId}"</span>
+    //         </div>
+    //     );
+    // }
 
     if (layout === "carousel") {
         return (

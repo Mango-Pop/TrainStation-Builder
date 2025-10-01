@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 interface GymImage {
     id?: string;
@@ -11,7 +11,7 @@ function GymGallery({
 }: { 
   spacing?: "sm" | "md" | "lg";
 }) {
-    const [images, setImages] = useState<any[]>([]);
+    const [images, setImages] = useState<GymImage[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -57,8 +57,8 @@ function GymGallery({
         <div className={`grid grid-cols-1 gap-4 p-4 max-w-7xl mx-auto`}>
             {images.map((imageItem, index) => {
                 // Handle different possible data structures
-                const imageData = imageItem.data || imageItem;
-                const finalImageUrl = getImageUrl(imageData.image || imageData.imageUrl || imageData.photo);
+                const imageData = imageItem || imageItem;
+                const finalImageUrl = getImageUrl(imageData.image);
                 
                 return (
                     <div key={imageItem.id || index} className="relative rounded-lg overflow-hidden shadow-lg aspect-square w-full">

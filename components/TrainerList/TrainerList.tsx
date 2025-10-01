@@ -19,7 +19,7 @@ function TrainerList({
   columns?: number;
   spacing?: "sm" | "md" | "lg";
 }) {
-    const [trainers, setTrainers] = useState<any[]>([]);
+    const [trainers, setTrainers] = useState<Trainer[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -73,8 +73,8 @@ function TrainerList({
         <div className={`grid ${getGridCols()} ${spacingClasses[spacing]} p-4 max-w-7xl mx-auto`}>
             {trainers.map((trainer, index) => {
                 // Handle different possible data structures
-                const trainerData = trainer.data || trainer;
-                const finalImageUrl = getImageUrl(trainerData.profilePicture || trainerData.imageUrl || trainerData.image || trainerData.photo);
+                const trainerData = trainer;
+                const finalImageUrl = getImageUrl(trainerData.imageUrl);
                 
                 return (
                     <div key={trainer.id || index} className="relative rounded-lg overflow-hidden shadow-lg w-full mx-auto border-zinc-800 border flex flex-row sm:flex-col">
@@ -83,7 +83,7 @@ function TrainerList({
                             <div className="relative w-36 h-36 sm:w-full sm:h-64 lg:h-80 flex-shrink-0">
                                 <img 
                                     src={finalImageUrl} 
-                                    alt={`${trainerData.firstName} ${trainerData.lastName}`}
+                                    alt={`${trainerData.name}`}
                                     className="w-full h-full object-cover object-top"
                                 />                                                                
                             </div>
@@ -92,7 +92,7 @@ function TrainerList({
                         {/* Bottom section with name and title */}
                         <div className="p-4 text-left sm:text-center bg-gradient-to-t flex-1 flex flex-col justify-center">
                             <h3 className="text-white text-xl sm:text-2xl lg:text-2xl mb-1">
-                                {trainerData.firstName} {trainerData.lastName}
+                                {trainerData.name}
                             </h3>
                             <p className="text-red-500 text-xs sm:text-sm lg:text-base uppercase font-semibold tracking-widest">
                                 {trainerData.title}
