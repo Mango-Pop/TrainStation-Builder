@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./tailwind.css";
 import Footer from "../components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Train Station Fitness",
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body
         className={`${saira.className} ${sairaCondensed.className} ${inter.className} antialiased min-h-screen bg-black text-base-content`}
       >
+        <Navbar />
         {children}
         <Footer />
       </body>
