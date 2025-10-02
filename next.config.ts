@@ -21,6 +21,9 @@ const nextConfig: NextConfig = BuilderDevTools()({
       },
     ];
   },
+  images: {
+    remotePatterns: [new URL('https://cdn.builder.io/api/v1/image/**')],
+  },
 });
 
 export default nextConfig;

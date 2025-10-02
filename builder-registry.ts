@@ -12,6 +12,7 @@ import TeamMember from "./components/TeamMember/TeamMember";
 import TrainerList from "./components/TrainerList/TrainerList";
 import GymGallery from "./components/GymGallery/GymGallery";
 import ClosingCTA from "./components/ClosingCTA/ClosingCTA";
+import MemberServices from "./components/MemberServices/MemberServices";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -620,5 +621,102 @@ Builder.registerComponent(ClosingCTA, {
       defaultValue: "https://trainstationfitnesscenter.gymmasteronline.com/portal/signup",
       helperText: "URL the button links to",
     },
+  ],
+});
+
+Builder.registerComponent(MemberServices, {
+  name: "MemberServices",
+  inputs: [
+    {
+      name: "firstCol",
+      friendlyName: "First Column",
+      type: "object",
+      defaultValue: {
+        imageUrl: "https://images.unsplash.com/photo-1554284126-4c2b6f614a7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        title: "Default Title",
+        description: "Default description text goes here.",
+        buttonText: "Learn More",
+        buttonUrl: "#"
+      },
+      subFields: [
+        {
+          name: "imageUrl",
+          type: "file",
+          allowedFileTypes: ["png", "jpg", "jpeg"],
+        },
+        {
+          name: "title",
+          type: "text",
+        },
+        {
+          name: "description",
+          type: "text",
+        },
+        {
+          name: "buttonText",
+          type: "text",
+        },
+        {
+          name: "buttonUrl",
+          type: "url",
+        }
+      ]
+    },
+    {
+      name: "secondCol",
+      friendlyName: "Second Column",
+      type: "object",
+      subFields: [
+        {
+          name: "imageUrl",
+          type: "file",
+          allowedFileTypes: ["png", "jpg", "jpeg"],
+        },
+        {
+          name: "title",
+          type: "text",
+        },
+        {
+          name: "description",
+          type: "text",
+        },
+        {
+          name: "buttonText",
+          type: "text",
+        },
+        {
+          name: "buttonUrl",
+          type: "url",
+        }
+      ]
+    },
+    {
+      name: "thirdCol",
+      friendlyName: "Third Column",
+      type: "object",
+      subFields: [
+        {
+          name: "imageUrl",
+          type: "file",
+          allowedFileTypes: ["png", "jpg", "jpeg"],
+        },
+        {
+          name: "title",
+          type: "text",
+        },
+        {
+          name: "description",
+          type: "text",
+        },
+        {
+          name: "buttonText",
+          type: "text",
+        },
+        {
+          name: "buttonUrl",
+          type: "url",
+        }
+      ]
+    }
   ],
 });
