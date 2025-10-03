@@ -27,8 +27,6 @@ function Footer() {
       try {
         const footerData = await fetch("https://cdn.builder.io/api/v3/content/footer-information/fac3daf7c9584beabf3ef19b8b83f9cd?apiKey=49da8b8581a648f6989d85ec423cf285");
         const response = await footerData.json();
-
-        console.log(response.data);
         setFooterData(response.data);
       } catch (err) {
         console.error('Error fetching footer data:', err);
