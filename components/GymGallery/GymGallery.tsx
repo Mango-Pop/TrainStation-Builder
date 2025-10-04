@@ -1,81 +1,31 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface GymImage {
-    id?: string;
-    image?: string | { url: string };
+    image: string;
+    altText: string;
 }
 
-function GymGallery({ 
-  spacing = "md"
-}: { 
-  spacing?: "sm" | "md" | "lg";
+function GymGallery({
+    galleryImages
+} : {
+    galleryImages: GymImage[];
 }) {
-    const [images, setImages] = useState<GymImage[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        async function fetchGymImages() {
-            try {
-                setLoading(true);
-                setError(null);
-                
-                const getImages = await fetch("https://cdn.builder.io/api/v3/content/gallery?apiKey=49da8b8581a648f6989d85ec423cf285");
-                const data = await getImages.json();
-                
-                setImages(data.results || []);
-                console.log('Gym images API response:', data);
-                console.log('Gym images results:', data.results);
-            } catch (err) {
-                console.error('Error fetching gym images:', err);
-                setError('Failed to load gym images');
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        fetchGymImages();
-    }, []);
-
-    // Get the actual URL from either a string or an object with url property
-    const getImageUrl = (imgUrl: string | { url: string } | undefined) => {
-        if (!imgUrl) return '';
-        if (typeof imgUrl === 'string') return imgUrl;
-        if (typeof imgUrl === 'object' && imgUrl.url) return imgUrl.url;
-        return '';
-    };
-
-    const spacingClasses = {
-        sm: "gap-2",
-        md: "gap-4", 
-        lg: "gap-6"
-    };
-
 
     return (
-        <div className={`grid grid-cols-1 gap-4 p-4 max-w-7xl mx-auto`}>
-            {images.map((imageItem, index) => {
-                // Handle different possible data structures
-                const imageData = imageItem || imageItem;
-                const finalImageUrl = getImageUrl(imageData.image);
-                
-                return (
-                    <div key={imageItem.id || index} className="relative rounded-lg overflow-hidden shadow-lg aspect-square w-full">
-                        {finalImageUrl ? (
-                            <img 
-                                src={finalImageUrl} 
-                                alt={`Gym image ${index + 1}`}
-                                className="w-full h-full object-cover"
-                            />
-                        ) : (
-                            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                                <span className="text-gray-500">No image</span>
-                            </div>
-                        )}
-                    </div>
-                );
-            })}
+        <div className="w-full flex justify-center items-center flex-col pt-10 pb-10 md:pt-20 md:pb-20 gap-10 overflow-hidden">
+            <h2 className="text-saira-condensed font-black text-5xl md:text-6xl uppercase text-center pl-10 pr-10">Gym Gallery</h2>
+            <div className="w-20 h-2 bg-primary"></div>
+            <div className="w-full md:w-[135vw] grid grid-cols-1 md:grid-cols-10 gap-4 place-items-center pl-10 pr-10">
+                {galleryImages.map((img, index) => (
+                    <div 
+                        key={`gym-gallery-` + index} 
+                        className={`${[3,9,12,15].includes(index) && "md:col-start-2"} col-span-1 md:col-span-3 aspect-6/3 w-full rounded-3xl max-w-[400px] md:max-w-none`}
+                        style={{ background: `url(${img.image}) center center / cover no-repeat` }}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

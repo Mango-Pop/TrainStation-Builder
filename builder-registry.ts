@@ -578,11 +578,20 @@ Builder.registerComponent(GymGallery, {
   name: "GymGallery",
   inputs: [
     {
-      name: "spacing",
-      type: "text",
-      enum: ["sm", "md", "lg"],
-      defaultValue: "md",
-      helperText: "Spacing between images",
+      name: "galleryImages",
+      friendlyName: "Gallery Images",
+      type: "list",
+      subFields: [
+        {
+          name: "image",
+          type: "file",
+          allowedFileTypes: ["png", "jpg", "jpeg"],
+        },
+        {
+          name: "altText",
+          type: "text"
+        }
+      ],
     },
   ],
 });
