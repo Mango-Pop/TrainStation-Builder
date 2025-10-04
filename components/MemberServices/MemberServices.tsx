@@ -24,7 +24,7 @@ function MemberServices({
 }: MemberServicesProps) {
 
     return (
-        <div className="w-full flex justify-center items-center flex-col p-10 md:p-20 gap-10">
+        <div className="w-full flex justify-center items-center flex-col p-10 md:p-20 gap-8">
             <h2 className="text-saira-condensed font-black text-5xl md:text-6xl uppercase text-center">Member Services</h2>
             <div className="w-20 h-2 bg-primary"></div>
             <div className="w-full flex gap-10 flex-col md:flex-row items-center md:items-start">

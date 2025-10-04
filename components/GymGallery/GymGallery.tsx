@@ -14,7 +14,7 @@ function GymGallery({
 }) {
 
     return (
-        <div className="w-full flex justify-center items-center flex-col pt-10 pb-10 md:pt-20 md:pb-20 gap-10 overflow-hidden">
+        <div className="w-full flex justify-center items-center flex-col pt-10 pb-10 md:pt-20 md:pb-20 gap-8 overflow-hidden">
             <h2 className="text-saira-condensed font-black text-5xl md:text-6xl uppercase text-center pl-10 pr-10">Gym Gallery</h2>
             <div className="w-20 h-2 bg-primary"></div>
             <div className="w-full md:w-[135vw] grid grid-cols-1 md:grid-cols-10 gap-4 place-items-center pl-10 pr-10">
