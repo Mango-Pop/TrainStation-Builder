@@ -13,6 +13,7 @@ import TrainerList from "./components/TrainerList/TrainerList";
 import GymGallery from "./components/GymGallery/GymGallery";
 import ClosingCTA from "./components/ClosingCTA/ClosingCTA";
 import MemberServices from "./components/MemberServices/MemberServices";
+import Banner from "./components/Banner/Banner";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -30,25 +31,28 @@ Builder.registerComponent(Hero, {
   name: "Hero",
   inputs: [
     {
-      name: "heroImageURL",
+      name: "backgroundImage",
+      friendlyName: "Background Image",
       type: "file",
       allowedFileTypes: ["png", "jpg", "jpeg"],
     },
     {
-      name: "heroCaption",
+      name: "subtitle",
+      friendlyName: "Subtitle",
       type: "text",
     },
     {
-      name: "heroTitle",
-      type: "text",
-    },
-    {
-      name: "heroDescription",
+      name: "title",
+      friendlyName: "Title",
       type: "text",
     },
     {
       name: "buttonText",
       type: "text",
+    },
+    {
+      name: "buttonUrl",
+      type: "url"
     }
   ],
 });
@@ -726,6 +730,49 @@ Builder.registerComponent(MemberServices, {
           type: "url",
         }
       ]
+    }
+  ],
+});
+
+Builder.registerComponent(Banner, {
+  name: "Banner",
+  inputs: [
+    {
+      name: "backgroundImage",
+      friendlyName: "Background Image",
+      type: "file",
+      allowedFileTypes: ["png", "jpg", "jpeg", "webp"],
+      helperText: "Background image for the banner",
+    },
+    {
+      name: "title",
+      friendlyName: "Title",
+      type: "text",
+      defaultValue: "Welcome to Our Gym",
+      helperText: "Main heading text",
+    },
+    {
+      name: "subtitle",
+      friendlyName: "Subtitle",
+      type: "text",
+      helperText: "Subtitle text below the title",
+    },
+    {
+      name: "showRedLine",
+      friendlyName: "Show Red Line",
+      type: "boolean",
+      defaultValue: true,
+      helperText: "Toggle to show or hide the red line below the title",
+    },
+    {
+      name: "buttonText",
+      type: "text",
+      helperText: "Text displayed on the button",
+    },
+    {
+      name: "buttonUrl",
+      type: "url",
+      helperText: "URL the button links to",
     }
   ],
 });
